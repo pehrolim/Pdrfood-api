@@ -9,3 +9,9 @@
 
 <hr></hr>
 
+# Linguagens / Tecnologias usadas
+
+<h5>Java</h5>
+<h5>Springboot</h5>
+<h5>Mysql</h5>
+<h5>Postman</h5>
