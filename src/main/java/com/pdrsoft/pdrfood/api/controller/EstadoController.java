@@ -25,7 +25,7 @@ import com.pdrsoft.pdrfood.domain.service.CadastroEstadoService;
 
 @RestController
 @RequestMapping("/estados")
-public class EstadoController {
+public class  EstadoController {
 
 	@Autowired
 	private EstadoRepository estadoRepository;
@@ -53,7 +53,7 @@ public class EstadoController {
 	public Estado atualizar(@PathVariable Long estadoId,
 			@RequestBody Estado estado) {
 
-		Estado estadoAtual = estadoRepository.findById(estadoId).orElse(null);
+		Estado estadoAtual = cadastroEstado.buscarOuFalhar(estadoId);
 
 		BeanUtils.copyProperties(estado, estadoAtual, "id");
 			
