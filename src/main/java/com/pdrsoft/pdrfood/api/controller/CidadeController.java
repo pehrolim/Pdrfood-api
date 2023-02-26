@@ -1,16 +1,12 @@
 package com.pdrsoft.pdrfood.api.controller;
 
-import java.time.LocalDateTime;
 import java.util.List;
 
-import com.pdrsoft.pdrfood.api.exceptionhandler.Problema;
-import com.pdrsoft.pdrfood.domain.exception.EntidadeNaoEncontradaException;
 import com.pdrsoft.pdrfood.domain.exception.EstadoNaoEncontradoException;
 import com.pdrsoft.pdrfood.domain.exception.NegocioException;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import com.pdrsoft.pdrfood.domain.model.Cidade;
