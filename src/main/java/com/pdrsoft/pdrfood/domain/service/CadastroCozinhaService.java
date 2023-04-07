@@ -1,8 +1,7 @@
 package com.pdrsoft.pdrfood.domain.service;
 
-import com.pdrsoft.pdrfood.domain.exception.CozinhaNaoEncontradoException;
+import com.pdrsoft.pdrfood.domain.exception.CozinhaNaoEncontradaException;
 import com.pdrsoft.pdrfood.domain.exception.EntidadeEmUsoException;
-import com.pdrsoft.pdrfood.domain.exception.EntidadeNaoEncontradaException;
 import com.pdrsoft.pdrfood.domain.model.Cozinha;
 import com.pdrsoft.pdrfood.domain.repository.CozinhaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,7 +26,7 @@ public class CadastroCozinhaService {
 			cozinhaRepository.deleteById(cozinhaId);
 			
 		} catch (EmptyResultDataAccessException e) {
-			throw new CozinhaNaoEncontradoException(cozinhaId);
+			throw new CozinhaNaoEncontradaException(cozinhaId);
 
 		} catch (DataIntegrityViolationException e) {
 			throw new EntidadeEmUsoException(
@@ -37,7 +36,7 @@ public class CadastroCozinhaService {
 
 	public Cozinha buscarOuFalhar(Long cozinhaId){
 		return cozinhaRepository.findById(cozinhaId).orElseThrow(
-				() -> new CozinhaNaoEncontradoException(cozinhaId));
+				() -> new CozinhaNaoEncontradaException(cozinhaId));
 	}
 
 }

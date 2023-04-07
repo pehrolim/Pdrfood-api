@@ -4,6 +4,8 @@ import lombok.Getter;
 
 @Getter
 public enum ProblemType {
+
+    DADOS_INVALIDOS("/dados-invalidos", "Dados inválidos"),
     ERRO_DE_SISTEMA("/erro-de-sistema", "Erro de sistema"),
     PARAMETRO_INVALIDO("/parametro-invalido", "Parâmetro inválido"),
     MENSAGEM_INCOMPREENSIVEL("/mensagem-incompreensivel", "Mensagem incompreensível"),
@@ -14,8 +16,8 @@ public enum ProblemType {
     private String title;
     private String uri;
 
-    ProblemType(String path, String title){
-        this.uri = "https://pdrfood.com.br" + path;
+    ProblemType(String path, String title) {
+        this.uri = "https://algafood.com.br" + path;
         this.title = title;
     }
 

@@ -7,6 +7,7 @@ import com.pdrsoft.pdrfood.domain.exception.NegocioException;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import com.pdrsoft.pdrfood.domain.model.Cidade;
@@ -35,7 +36,7 @@ public class CidadeController {
 	
 	@PostMapping
 	@ResponseStatus(HttpStatus.CREATED)
-	public Cidade adicionar(@RequestBody Cidade cidade) {
+	public Cidade adicionar(@RequestBody @Validated Cidade cidade) {
 		try{
 			return cadastroCidade.salvar(cidade);
 		}catch (EstadoNaoEncontradoException e){
@@ -45,7 +46,7 @@ public class CidadeController {
 	
 	@PutMapping("/{cidadeId}")
 	public Cidade atualizar(@PathVariable Long cidadeId,
-							 @RequestBody Cidade cidade) {
+							 @RequestBody @Validated Cidade cidade) {
 
 		Cidade cidadeAtual = cadastroCidade.buscarOuFalhar(cidadeId);
 		BeanUtils.copyProperties(cidade, cidadeAtual, "id");
